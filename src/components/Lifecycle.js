@@ -7,6 +7,19 @@ const Lifecycle = () => {
   useEffect(() => {
     console.log("Sindependencias");
   });
+
+  useEffect(() => {
+    console.log("UseEffect []");
+  }, []);
+
+  useEffect(() => {
+    console.log("useEffect [contador 1] ");
+  }, [contador1]);
+
+  useEffect(() => {
+    console.log("useEffect [contador1,contador2]");
+  }, [contador1, contador2]);
+
   return (
     <div>
       <button onClick={() => setContador1(contador1 + 1)}>contador1</button>
