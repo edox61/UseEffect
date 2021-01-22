@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import getUser from "../helpers/getUser";
 import getPosts from "../helpers/getPosts";
 
@@ -23,11 +23,11 @@ const Fetchcard = () => {
     });
   };
 
-  const updatePost = () => {
+  const updatePost = useCallback(() => {
     getPosts(user.id).then((newPosts) => {
       setPosts(newPosts);
     });
-  };
+  }, [user.id]);
 
   useEffect(() => {
     updateUser();
